@@ -4,7 +4,7 @@
 ### Estado del código
 [![Build Status](https://travis-ci.org/fergill/apaw-ep-fernanda-guerra.svg?branch=develop)](https://travis-ci.org/fergill/apaw-ep-fernanda-guerra)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3Aapaw-ep-fernanda-guerra&metric=alert_status)](https://sonarcloud.io/dashboard?id=es.upm.miw%3Aapaw-ep-fernanda-guerra)
-[![BCH compliance](https://bettercodehub.com/edge/badge/miw-upm/apaw-ep-themes?branch=develop)](https://bettercodehub.com/)
+[![BCH compliance](https://bettercodehub.com/edge/badge/fergill/apaw-ep-fernanda-guerra?branch=develop)](https://bettercodehub.com/results/fergill/apaw-ep-fernanda-guerra)
 [![Heroku broken](https://apaw-ep-fernanda-guerra.herokuapp.com/system/version-badge)](https://apaw-ep-fernanda-guerra.herokuapp.com/swagger-ui.html)
 
 ### Tecnologías necesarias
