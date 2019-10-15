@@ -52,9 +52,9 @@ class RecipeResourceIT {
                 this.webTestClient
                         .get().uri(RecipeResource.RECIPES)
                         .exchange()
-                .expectStatus().isOk()
-                .expectBodyList(RecipeDto.class)
-                .returnResult().getResponseBody();
+                        .expectStatus().isOk()
+                        .expectBodyList(RecipeDto.class)
+                        .returnResult().getResponseBody();
         assertTrue(list.size() > 0);
         assertNotNull(list.get(0).getId());
         assertNotNull(list.get(0).getDescription());
