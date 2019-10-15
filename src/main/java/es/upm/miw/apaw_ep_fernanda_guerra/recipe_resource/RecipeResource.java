@@ -7,7 +7,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(RecipeResource.RECIPES)
-
 public class RecipeResource {
 
     static final String RECIPES = "/recipes";
@@ -15,7 +14,7 @@ public class RecipeResource {
     private RecipeBusinessController recipeBusinessController;
 
     @Autowired
-    public RecipeResource(RecipeBusinessController recipeBusinessController){
+    public RecipeResource(RecipeBusinessController recipeBusinessController) {
         this.recipeBusinessController = recipeBusinessController;
     }
 
@@ -26,6 +25,8 @@ public class RecipeResource {
     }
 
     @GetMapping
-    public List<RecipeDto> readAll() { return this.recipeBusinessController.readAll(); }
+    public List<RecipeDto> readAll() {
+        return this.recipeBusinessController.readAll();
+    }
 
 }
