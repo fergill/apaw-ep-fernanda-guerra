@@ -17,9 +17,11 @@ public class RecipeBusinessController {
     }
 
     public RecipeDto create(RecipeDto recipeDto) {
-        Recipe recipe = new Recipe(recipeDto.getId(),
-                recipeDto.getDescription(), recipeDto.getLevel(),
-                recipeDto.getLight(), recipeDto.getGuests());
+        Recipe recipe = new Recipe(
+                recipeDto.getDescription(),
+                recipeDto.getLevel(),
+                recipeDto.getLight(),
+                recipeDto.getGuests());
         this.recipeDao.save(recipe);
         return new RecipeDto(recipe);
     }

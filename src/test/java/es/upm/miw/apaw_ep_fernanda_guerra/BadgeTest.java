@@ -1,4 +1,4 @@
-package es.upm.miw.apaw_ep_themes;
+package es.upm.miw.apaw_ep_fernanda_guerra;
 
 import org.junit.jupiter.api.Test;
 

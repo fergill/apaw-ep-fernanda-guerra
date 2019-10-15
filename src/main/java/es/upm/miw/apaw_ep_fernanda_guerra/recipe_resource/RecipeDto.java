@@ -1,6 +1,5 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.recipe_resource;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import es.upm.miw.apaw_ep_fernanda_guerra.exceptions.BadRequestException;
 
 public class RecipeDto {
@@ -25,7 +24,7 @@ public class RecipeDto {
         this.guests = guests;
     }
 
-    public RecipeDto(Recipe recipe){
+    public RecipeDto(Recipe recipe) {
         this.id = recipe.getId();
         this.description = recipe.getDescription();
         this.level = recipe.getLevel();
@@ -33,28 +32,48 @@ public class RecipeDto {
         this.guests = recipe.getGuests();
     }
 
-    public String getId() { return id; }
+    public String getId() {
+        return id;
+    }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getDescription() { return description; }
+    public String getDescription() {
+        return description;
+    }
 
-    public void setDescription(String description) { this.description = description; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public String getLevel() { return level; }
+    public String getLevel() {
+        return level;
+    }
 
-    public void setLevel(String level) { this.level = level; }
+    public void setLevel(String level) {
+        this.level = level;
+    }
 
-    public Boolean getLight() { return light; }
+    public Boolean getLight() {
+        return light;
+    }
 
-    public void setLight(Boolean light) { this.light = light; }
+    public void setLight(Boolean light) {
+        this.light = light;
+    }
 
-    public Integer getGuests() { return guests; }
+    public Integer getGuests() {
+        return guests;
+    }
 
-    public void setGuests(Integer guests) { this.guests = guests; }
+    public void setGuests(Integer guests) {
+        this.guests = guests;
+    }
 
     public void validate() {
-        if( description == null || description.isEmpty() || level == null || level.isEmpty() || light == null || guests == null) {
+        if (description == null || description.isEmpty()) {
             throw new BadRequestException("Incomplete RecipeDto. ");
         }
     }

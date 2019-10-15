@@ -17,8 +17,7 @@ public class Recipe {
 
     private Integer guests;
 
-    public Recipe(String id, String description, String level, Boolean light, Integer guests) {
-        this.id = id;
+    public Recipe(String description, String level, Boolean light, Integer guests) {
         this.description = description;
         this.level = level;
         this.light = light;
@@ -26,23 +25,23 @@ public class Recipe {
     }
 
     public String getId() {
-        return this.id;
+        return id;
     }
 
     public String getDescription() {
-        return this.description;
+        return description;
     }
 
     public String getLevel() {
-        return this.level;
+        return level;
     }
 
     public Boolean getLight() {
-        return this.light;
+        return light;
     }
 
     public Integer getGuests() {
-        return this.guests;
+        return guests;
     }
 
     @Override
