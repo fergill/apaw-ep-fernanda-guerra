@@ -1,5 +1,7 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.operator_resource;
 
+import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.Operator;
+import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.OperatorDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
