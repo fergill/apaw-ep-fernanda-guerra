@@ -15,6 +15,8 @@ public class OrderResource {
 
     static final String PRICE = "/price";
 
+    static final String OPERATOR = "/operator";
+
     private OrderBusinessController orderBusinessController;
 
     @Autowired
@@ -37,6 +39,9 @@ public class OrderResource {
     public OrderBasicDto readPrice(@PathVariable String id) {
         return this.orderBusinessController.readOrder(id);
     }
+
+    @GetMapping(value = ID_ID + OPERATOR)
+    public OrderBasicDto readOperator(@PathVariable String id) { return this.orderBusinessController.readOrder(id); }
 
 
 }
