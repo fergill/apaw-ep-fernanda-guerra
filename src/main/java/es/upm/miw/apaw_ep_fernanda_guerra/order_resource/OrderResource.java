@@ -1,11 +1,10 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 
-        import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.Operator;
-        import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.web.bind.annotation.*;
+import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-        import java.util.List;
+import java.util.List;
 
 @RestController
 @RequestMapping(OrderResource.ORDERS)
@@ -40,11 +39,6 @@ public class OrderResource {
     @GetMapping(value = ID_ID + PRICE)
     public OrderBasicDto readPrice(@PathVariable String id) {
         return this.orderBusinessController.readOrder(id);
-    }
-
-    @GetMapping(value = OPERATOR)
-    public OperatorDto readOperator(@PathVariable String id) {
-        return this.orderBusinessController.readOperator(id);
     }
 
 }

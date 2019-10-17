@@ -1,7 +1,6 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource;
 
 import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data.Croqueta;
-import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data.Filler;
 
 public class CroquetaBasicDto {
 

@@ -1,6 +1,5 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource;
 
-import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorBusinessController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +20,6 @@ public class CroquetaResource {
 
     @PostMapping
     public CroquetaBasicDto create(@RequestBody CroquetaBasicDto croquetaBasicDto) {
-        croquetaBasicDto.validate();
         return this.croquetaBusinessController.create(croquetaBasicDto);
     }
 

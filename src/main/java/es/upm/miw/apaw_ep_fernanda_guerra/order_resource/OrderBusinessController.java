@@ -5,6 +5,7 @@ import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data.CroquetaDao;
 import es.upm.miw.apaw_ep_fernanda_guerra.exceptions.NotFoundException;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.Operator;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.OperatorDao;
+import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -25,6 +26,7 @@ public class OrderBusinessController {
         this.orderDao = orderDao;
         this.operatorDao = operatorDao;
         this.croquetaDao = croquetaDao;
+
     }
 
     public OrderBasicDto create(OrderCreationDto orderCreationDto) {
@@ -37,20 +39,18 @@ public class OrderBusinessController {
         return new OrderBasicDto(order);
     }
 
+    private Order findOrderByIdAssured(String id) {
+        return this.orderDao.findById(id).orElseThrow(() -> new NotFoundException("Order id: " + id));
+    }
+
     public List<OrderBasicDto> readAll() {
-        List<Order> recipes = this.orderDao.findAll();
-        return recipes.stream().map(OrderBasicDto::new).collect(Collectors.toList());
+        List<Order> orders = this.orderDao.findAll();
+        return orders.stream().map(OrderBasicDto::new).collect(Collectors.toList());
     }
 
     public OrderBasicDto readOrder(String id) {
         return new OrderBasicDto(this.findOrderByIdAssured(id));
     }
 
-    private Order findOrderByIdAssured(String id) {
-        return this.orderDao.findById(id).orElseThrow(() -> new NotFoundException("User id: " + id));
-    }
 
-    public OperatorDto readOperator(String id) {
-        return this.orderDao.findById(id).orElseThrow(() -> new NotFoundException("Operator id: " + id));
-    }
 }
