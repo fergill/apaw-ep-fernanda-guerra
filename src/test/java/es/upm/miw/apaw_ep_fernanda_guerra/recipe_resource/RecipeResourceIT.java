@@ -62,18 +62,4 @@ class RecipeResourceIT {
         assertNotNull(list.get(0).getDescription());
     }
 
-    @Test
-    void testCreateOrderException() {
-        OrderCreationDto orderCreationDto =
-                new OrderCreationDto(40.00, "operadoridtest2", "croquetaidtest2");
-        this.webTestClient
-                .post().uri(OrderResource.ORDERS)
-                .body(BodyInserters.fromObject(orderCreationDto))
-                .exchange()
-                .expectStatus().isEqualTo(HttpStatus.BAD_REQUEST);
-    }
-
-
-
-
 }
