@@ -1,15 +1,16 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+        import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.Operator;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+        import java.util.List;
 
 @RestController
 @RequestMapping(OrderResource.ORDERS)
 public class OrderResource {
 
-    static final String ORDERS = "/orders";
+    public static final String ORDERS = "/orders";
 
     static final String ID_ID = "/{id}";
 
@@ -40,8 +41,9 @@ public class OrderResource {
         return this.orderBusinessController.readOrder(id);
     }
 
-    @GetMapping(value = ID_ID + OPERATOR)
-    public OrderBasicDto readOperator(@PathVariable String id) { return this.orderBusinessController.readOrder(id); }
-
+    @GetMapping(value = OPERATOR)
+    public Operator readOperator(@PathVariable String id) {
+        return this.orderBusinessController.readOperator(id);
+    }
 
 }

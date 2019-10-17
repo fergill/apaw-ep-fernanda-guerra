@@ -2,14 +2,17 @@ package es.upm.miw.apaw_ep_fernanda_guerra.operator_resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriBuilder;
 
+import java.net.URI;
 import java.util.List;
+import java.util.function.Function;
 
 @RestController
 @RequestMapping(OperatorResource.OPERATORS)
 public class OperatorResource {
 
-    static final String OPERATORS = "/operators";
+    public static final String OPERATORS = "/operators";
 
     private OperatorBusinessController operatorBusinessController;
 

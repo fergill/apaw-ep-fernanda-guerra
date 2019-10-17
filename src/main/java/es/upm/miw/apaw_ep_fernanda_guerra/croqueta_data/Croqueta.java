@@ -17,6 +17,11 @@ public class Croqueta {
         this.filler = filler;
     }
 
+    public Croqueta(String type, double price) {
+        filler.getType() = type;
+        filler.getPrice() = price;
+    }
+
     public String getId() {
         return id;
     }
@@ -24,6 +29,10 @@ public class Croqueta {
     public Filler getFiller() {
         return filler;
     }
+
+    public String getType() { return type; }
+
+    public Double getPrice() { return price; }
 
     @Override
     public String toString() {
