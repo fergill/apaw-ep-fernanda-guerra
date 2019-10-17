@@ -5,39 +5,27 @@ import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data.Filler;
 
 public class CroquetaBasicDto {
 
-    private String type;
-    private Double price;
+    private String id;
 
     public CroquetaBasicDto() {
     }
 
-    public CroquetaBasicDto(Filler filler) {
-        this.type = filler.getType();
-        this.price = filler.getPrice();
+    public CroquetaBasicDto(Croqueta croqueta) {
+        this.id = croqueta.getId();
     }
 
-    public String getType() {
-        return type;
+    public String getId() {
+        return id;
     }
 
-    public void setId(String type) {
-        this.type = type;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "CroquetaBasicDto{" +
-                "type='" + type + '\'' +
-                "price='" + price + '\'' +
+                "id='" + id + '\'' +
                 '}';
     }
-
 }

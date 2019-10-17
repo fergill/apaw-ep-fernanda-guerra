@@ -4,6 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Document
 public class Croqueta {
 
@@ -11,35 +14,18 @@ public class Croqueta {
     private String id;
 
     @DBRef
-    private Filler filler;
+    private List<Filler> fillers;
 
-    public Croqueta(Filler filler) {
-        this.filler = filler;
-    }
-
-    public Croqueta(String type, double price) {
-        filler.getType() = type;
-        filler.getPrice() = price;
+    public Croqueta() {
+        this.fillers = new ArrayList<>();
     }
 
     public String getId() {
         return id;
     }
 
-    public Filler getFiller() {
-        return filler;
-    }
-
-    public String getType() { return type; }
-
-    public Double getPrice() { return price; }
-
-    @Override
-    public String toString() {
-        return "Croqueta{" +
-                "id='" + id + '\'' +
-                ", filler=" + filler + '\'' +
-                '}';
+    public List<Filler> getFillers() {
+        return fillers;
     }
 
 }
