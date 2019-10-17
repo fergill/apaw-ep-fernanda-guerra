@@ -6,7 +6,7 @@ public class OrderCreationDto {
 
     private String id;
 
-    private Double price;
+    private Double total;
 
     private String operatorId;
 
@@ -15,18 +15,18 @@ public class OrderCreationDto {
     public OrderCreationDto() {
     }
 
-    public OrderCreationDto(Double price, String operatorId, String croquetaId) {
-        this.price = price;
+    public OrderCreationDto(Double total, String operatorId, String croquetaId) {
+        this.total = total;
         this.operatorId = operatorId;
         this.croquetaId = croquetaId;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getTotal() {
+        return total;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setTotal(Double total) {
+        this.total = total;
     }
 
     public String getOperatorId() {
@@ -46,7 +46,7 @@ public class OrderCreationDto {
     }
 
     public void validate() {
-        if (this.price == null || this.operatorId == null || this.operatorId.isEmpty()
+        if (total == null || total.isNaN() || this.operatorId == null || this.operatorId.isEmpty()
                 || this.croquetaId == null || this.croquetaId.isEmpty()) {
             throw new BadRequestException("Incomplete OrderCreationDto");
         }
@@ -55,7 +55,7 @@ public class OrderCreationDto {
     @Override
     public String toString() {
         return "OrderCreationDto{" +
-                "price='" + price + '\'' +
+                "total='" + total + '\'' +
                 ", operatorId='" + operatorId + '\'' +
                 ", croquetaId='" + croquetaId + '\'' +
                 '}';

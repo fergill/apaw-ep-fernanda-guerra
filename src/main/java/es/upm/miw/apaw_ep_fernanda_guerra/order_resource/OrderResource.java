@@ -14,7 +14,7 @@ public class OrderResource {
 
     static final String ID_ID = "/{id}";
 
-    static final String PRICE = "/price";
+    static final String TOTAL = "/total";
 
     static final String OPERATOR = "/operator";
 
@@ -36,8 +36,8 @@ public class OrderResource {
         return this.orderBusinessController.readAll();
     }
 
-    @GetMapping(value = ID_ID + PRICE)
-    public OrderBasicDto readPrice(@PathVariable String id) {
+    @GetMapping(value = ID_ID + TOTAL)
+    public OrderBasicDto readTotal(@PathVariable String id) {
         return this.orderBusinessController.readOrder(id);
     }
 

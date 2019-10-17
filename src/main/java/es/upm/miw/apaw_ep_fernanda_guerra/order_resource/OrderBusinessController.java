@@ -34,7 +34,7 @@ public class OrderBusinessController {
                 .orElseThrow(() -> new NotFoundException("Operator id: " + orderCreationDto.getOperatorId()));
         Croqueta croqueta = this.croquetaDao.findById(orderCreationDto.getCroquetaId())
                 .orElseThrow(() -> new NotFoundException("Croqueta id: " + orderCreationDto.getCroquetaId()));
-        Order order = new Order(orderCreationDto.getPrice(), operator, croqueta);
+        Order order = new Order(orderCreationDto.getTotal(), operator, croqueta);
         this.orderDao.save(order);
         return new OrderBasicDto(order);
     }
@@ -51,6 +51,7 @@ public class OrderBusinessController {
     public OrderBasicDto readOrder(String id) {
         return new OrderBasicDto(this.findOrderByIdAssured(id));
     }
+
 
 
 }

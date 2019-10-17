@@ -6,14 +6,14 @@ public class OrderBasicDto {
 
     private String id;
 
-    private Double price;
+    private Double total;
 
     public OrderBasicDto() {
     }
 
     public OrderBasicDto(Order order) {
         this.id = order.getId();
-        this.price = order.getPrice();
+        this.total = order.getTotal();
     }
 
     public String getId() {
@@ -24,25 +24,26 @@ public class OrderBasicDto {
         this.id = id;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getTotal() {
+        return total;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setTotal(Double total) {
+        this.total = total;
     }
 
-    public void validatePrice() {
-        if (this.price == null) {
-            throw new BadRequestException("Incomplete, lost price");
+    public void validate() {
+        if (total == null || total.isNaN()) {
+            throw new BadRequestException("Incomplete, lost total");
         }
+
     }
 
     @Override
     public String toString() {
         return "OrderBasicDto{" +
                 "id='" + id + '\'' +
-                ", price='" + price + '\'' +
+                ", total='" + total + '\'' +
                 '}';
     }
 
