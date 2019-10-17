@@ -41,4 +41,8 @@ public class OrderResource {
         return this.orderBusinessController.readOrder(id);
     }
 
+    @GetMapping(value = OPERATOR)
+    public OperatorDto readOperator(@PathVariable String id) {
+        return this.orderBusinessController.readOperator(id);
+    }
 }

@@ -52,6 +52,9 @@ public class OrderBusinessController {
         return new OrderBasicDto(this.findOrderByIdAssured(id));
     }
 
+    public OperatorDto readOperator(String id) {
+        return new OperatorDto(this.findOrderByIdAssured(id).getOperator());
+    }
 
 
 }
