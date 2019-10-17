@@ -1,5 +1,6 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 
+import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
