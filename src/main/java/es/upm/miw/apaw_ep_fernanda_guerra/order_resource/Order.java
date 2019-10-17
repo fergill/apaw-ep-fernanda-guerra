@@ -16,16 +16,16 @@ public class Order {
 
     private LocalDateTime date;
 
-    private Double price;
+    private Double total;
 
     @DBRef
     private Operator operator;
 
     private Croqueta croqueta;
 
-    public Order(Double price, Operator operator, Croqueta croqueta) {
+    public Order(Double total, Operator operator, Croqueta croqueta) {
         this.date = LocalDateTime.now();
-        this.price = price;
+        this.total = total;
         this.operator = operator;
         this.croqueta = croqueta;
     }
@@ -38,8 +38,8 @@ public class Order {
         return date;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getTotal() {
+        return total;
     }
 
     public Operator getOperator() {
@@ -55,7 +55,7 @@ public class Order {
         return "Order{" +
                 "id='" + id + '\'' +
                 ", date=" + date +
-                ", price=" + price +
+                ", total=" + total +
                 ", operator=" + operator + '\'' +
                 ", croqueta=" + croqueta + '\'' +
                 '}';

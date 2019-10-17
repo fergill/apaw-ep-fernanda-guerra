@@ -55,6 +55,7 @@ class OperatorResourceIT {
                         .expectStatus().isOk()
                         .expectBodyList(OperatorDto.class)
                         .returnResult().getResponseBody();
+        assert list != null;
         assertTrue(list.size() > 0);
         assertNotNull(list.get(0).getId());
         assertNotNull(list.get(0).getName());

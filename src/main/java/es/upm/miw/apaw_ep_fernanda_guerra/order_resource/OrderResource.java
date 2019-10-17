@@ -1,6 +1,5 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 
-import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,7 @@ public class OrderResource {
 
     static final String ID_ID = "/{id}";
 
-    static final String PRICE = "/price";
+    static final String TOTAL = "/total";
 
     static final String OPERATOR = "/operator";
 
@@ -36,8 +35,8 @@ public class OrderResource {
         return this.orderBusinessController.readAll();
     }
 
-    @GetMapping(value = ID_ID + PRICE)
-    public OrderBasicDto readPrice(@PathVariable String id) {
+    @GetMapping(value = ID_ID + TOTAL)
+    public OrderBasicDto readTotal(@PathVariable String id) {
         return this.orderBusinessController.readOrder(id);
     }
 

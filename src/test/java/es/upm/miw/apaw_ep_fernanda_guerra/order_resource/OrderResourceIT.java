@@ -3,10 +3,8 @@ package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 import es.upm.miw.apaw_ep_fernanda_guerra.ApiTestConfig;
 import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.CroquetaBasicDto;
 import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.CroquetaResource;
-import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.Operator;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorResource;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -18,7 +16,7 @@ public class OrderResourceIT {
     @Autowired
     private WebTestClient webTestClient;
 
-    String createOrder(Double price) {
+    String createOrder() {
         OperatorDto operatorDto =
                 new OperatorDto("Fernanda", "Guerra", "909090X");
         String operatorId = this.webTestClient
@@ -39,7 +37,7 @@ public class OrderResourceIT {
                 .returnResult().getResponseBody().getId();
         return this.webTestClient
                 .post().uri(OrderResource.ORDERS)
-                .body(BodyInserters.fromObject(new OrderCreationDto(price, operatorId, croquetaId)))
+                .body(BodyInserters.fromObject(new OrderCreationDto(90.00, operatorId, croquetaId)))
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(OrderBasicDto.class)
@@ -48,10 +46,6 @@ public class OrderResourceIT {
 
     @Test
     void testCreate() {
-        this.createOrder(90.00);
+            this.createOrder();
     }
-
-
-
-
 }
