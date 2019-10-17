@@ -50,5 +50,7 @@ public class OrderBusinessController {
         return this.orderDao.findById(id).orElseThrow(() -> new NotFoundException("User id: " + id));
     }
 
-
+    public Operator readOperator(String id) {
+        return this.operatorDao.findById(id).orElseThrow(() -> new NotFoundException("Operator id: " + id));
+    }
 }

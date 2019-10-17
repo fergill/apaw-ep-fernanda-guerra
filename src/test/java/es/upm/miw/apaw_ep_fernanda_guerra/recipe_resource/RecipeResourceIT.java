@@ -1,6 +1,8 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.recipe_resource;
 
 import es.upm.miw.apaw_ep_fernanda_guerra.ApiTestConfig;
+import es.upm.miw.apaw_ep_fernanda_guerra.order_resource.OrderCreationDto;
+import es.upm.miw.apaw_ep_fernanda_guerra.order_resource.OrderResource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -59,5 +61,19 @@ class RecipeResourceIT {
         assertNotNull(list.get(0).getId());
         assertNotNull(list.get(0).getDescription());
     }
+
+    @Test
+    void testCreateOrderException() {
+        OrderCreationDto orderCreationDto =
+                new OrderCreationDto(40.00, "operadoridtest2", "croquetaidtest2");
+        this.webTestClient
+                .post().uri(OrderResource.ORDERS)
+                .body(BodyInserters.fromObject(orderCreationDto))
+                .exchange()
+                .expectStatus().isEqualTo(HttpStatus.BAD_REQUEST);
+    }
+
+
+
 
 }
