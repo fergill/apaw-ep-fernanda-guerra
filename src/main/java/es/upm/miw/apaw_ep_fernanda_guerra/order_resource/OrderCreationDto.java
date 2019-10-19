@@ -21,6 +21,8 @@ public class OrderCreationDto {
         this.croquetaId = croquetaId;
     }
 
+    public String getId() { return id; }
+
     public Double getTotal() {
         return total;
     }

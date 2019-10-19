@@ -3,11 +3,13 @@ package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 import es.upm.miw.apaw_ep_fernanda_guerra.ApiTestConfig;
 import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.CroquetaBasicDto;
 import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.CroquetaResource;
+import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.Operator;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorResource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.reactive.function.BodyInserters;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -52,7 +54,7 @@ public class OrderResourceIT {
     }
 
     @Test
-    void testReadOperator() {
+    OperatorDto testReadOperator(@PathVariable String id) {
         OperatorDto operatorDto = new OperatorDto("Fernanda", "Guerra", "909090X");
         String operatorId = this.webTestClient
                 .post().uri(OperatorResource.OPERATORS)
@@ -61,12 +63,14 @@ public class OrderResourceIT {
                 .expectStatus().isOk()
                 .expectBody(OperatorDto.class)
                 .returnResult().getResponseBody().getId();
-        OrderCreationDto order = new OrderCreationDto(10.00, operatorDto.getId(), "croquetaId");
         this.webTestClient
-                .get().uri(OrderResource.ORDERS + OrderResource.ID_ID + OrderResource.OPERATOR, order)
+                .post().uri(OrderResource.ORDERS)
+                .body(BodyInserters.fromObject(new OrderCreationDto(20.00, operatorDto.getId(), "sss")))
                 .exchange()
-                .expectBody(OperatorDto.class)
-                .returnResult().getResponseBody().getId();
-        assertEquals(operatorId, OrderResource.OPERATOR);
+                .expectStatus().isOk()
+                .expectBody(OrderCreationDto.class)
+                .returnResult().getResponseBody().getOperatorId();
+        assertEquals(operatorId, operatorDto.getId());
     }
+
 }
