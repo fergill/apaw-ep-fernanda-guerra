@@ -11,6 +11,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ApiTestConfig
 public class OrderResourceIT {
@@ -53,20 +54,12 @@ public class OrderResourceIT {
 
     @Test
     void testReadOperator() {
-        OperatorDto operatorDto = new OperatorDto("Fernanda", "Guerra", "909090X");
+        String orderId = this.createOrder();
         String operatorId = this.webTestClient
-                .post().uri(OperatorResource.OPERATORS)
-                .body(BodyInserters.fromObject(operatorDto))
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(OperatorDto.class)
-                .returnResult().getResponseBody().getId();
-        OrderCreationDto order = new OrderCreationDto(10.00, operatorDto.getId(), "croquetaId");
-        this.webTestClient
-                .get().uri(OrderResource.ORDERS + OrderResource.ID_ID + OrderResource.OPERATOR, order)
+                .get().uri(OrderResource.ORDERS + OrderResource.ID_ID + OrderResource.OPERATOR, orderId)
                 .exchange()
                 .expectBody(OperatorDto.class)
                 .returnResult().getResponseBody().getId();
-        assertEquals(operatorId, OrderResource.OPERATOR);
+        assertNotNull(operatorId);
     }
 }
