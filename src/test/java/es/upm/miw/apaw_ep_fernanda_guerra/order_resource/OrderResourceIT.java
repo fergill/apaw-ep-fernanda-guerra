@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @ApiTestConfig
 public class OrderResourceIT {
 
@@ -46,6 +48,17 @@ public class OrderResourceIT {
 
     @Test
     void testCreate() {
-            this.createOrder();
+        this.createOrder();
+    }
+
+    @Test
+    void testReadOperator() {
+        String orderId = this.createOrder();
+        String operatorId = this.webTestClient
+                .get().uri(OrderResource.ORDERS + OrderResource.ID_ID + OrderResource.OPERATOR, orderId)
+                .exchange()
+                .expectBody(OperatorDto.class)
+                .returnResult().getResponseBody().getId();
+        assertNotNull(operatorId);
     }
 }
