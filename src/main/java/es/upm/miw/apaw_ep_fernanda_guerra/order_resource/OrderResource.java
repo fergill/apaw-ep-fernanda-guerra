@@ -45,4 +45,11 @@ public class OrderResource {
     public OperatorDto readOperator(@PathVariable String id) {
         return this.orderBusinessController.readOperator(id);
     }
+
+    @PutMapping(value = ID_ID + TOTAL)
+    public void updateTotal(@PathVariable String id, @RequestBody OrderBasicDto orderBasicDto) {
+        orderBasicDto.validate();
+        this.orderBusinessController.updateTotal(id, orderBasicDto.getTotal());
+    }
+
 }
