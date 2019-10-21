@@ -7,9 +7,11 @@ import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorResource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ApiTestConfig
@@ -61,4 +63,42 @@ public class OrderResourceIT {
                 .returnResult().getResponseBody().getId();
         assertNotNull(operatorId);
     }
+
+    @Test
+    void testPutTotal() {
+        String id = this.createOrder();
+        OrderBasicDto newOrder = new OrderBasicDto();
+        newOrder.setTotal(10.00);
+        this.webTestClient
+                .put().uri(OrderResource.ORDERS + OrderResource.ID_ID + OrderResource.TOTAL, id)
+                .body(BodyInserters.fromObject(newOrder))
+                .exchange()
+                .expectStatus().isOk();
+        newOrder = this.webTestClient
+                .get().uri(OrderResource.ORDERS + OrderResource.ID_ID + OrderResource.TOTAL, id)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(OrderBasicDto.class)
+                .returnResult().getResponseBody();
+        assertEquals(10.00, newOrder.getTotal(), 0.001);
+    }
+
+    @Test
+    void testPutTotalNotFoundException() {
+        String id = this.createOrder();
+        OrderBasicDto newOrder = new OrderBasicDto();
+        this.webTestClient
+                .put().uri(OrderResource.ORDERS + OrderResource.ID_ID + OrderResource.TOTAL, id)
+                .exchange()
+                .expectStatus().isEqualTo(HttpStatus.BAD_REQUEST);
+    }
+
+    @Test
+    void testPutTotalBadRequestException() {
+        this.webTestClient
+                .put().uri(OrderResource.ORDERS + OrderResource.ID_ID + OrderResource.TOTAL, "123")
+                .exchange()
+                .expectStatus().isEqualTo(HttpStatus.BAD_REQUEST);
+    }
+
 }
