@@ -1,7 +1,7 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 
-import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data.Croqueta;
-import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data.CroquetaDao;
+import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.Croqueta;
+import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.CroquetaDao;
 import es.upm.miw.apaw_ep_fernanda_guerra.exceptions.NotFoundException;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.Operator;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.OperatorDao;

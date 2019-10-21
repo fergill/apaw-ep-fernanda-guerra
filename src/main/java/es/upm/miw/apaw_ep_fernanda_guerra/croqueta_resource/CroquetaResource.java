@@ -11,6 +11,8 @@ public class CroquetaResource {
 
     public static final String CROQUETAS = "/croquetas";
 
+    static final String ID_ID = "/{id}";
+
     private CroquetaBusinessController croquetaBusinessController;
 
     @Autowired
@@ -19,12 +21,12 @@ public class CroquetaResource {
     }
 
     @PostMapping
-    public CroquetaBasicDto create(@RequestBody CroquetaBasicDto croquetaBasicDto) {
-        return this.croquetaBusinessController.create(croquetaBasicDto);
+    public CroquetaDto create(@RequestBody CroquetaDto croquetaDto) {
+        return this.croquetaBusinessController.create(croquetaDto);
     }
 
     @GetMapping
-    public List<CroquetaBasicDto> readAll() {
+    public List<CroquetaDto> readAll() {
         return this.croquetaBusinessController.readAll();
     }
 

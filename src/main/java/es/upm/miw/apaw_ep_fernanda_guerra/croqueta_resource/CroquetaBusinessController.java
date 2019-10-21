@@ -1,7 +1,5 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource;
 
-import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data.Croqueta;
-import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data.CroquetaDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -18,15 +16,14 @@ public class CroquetaBusinessController {
         this.croquetaDao = croquetaDao;
     }
 
-    public CroquetaBasicDto create(CroquetaBasicDto croquetaBasicDto) {
-        Croqueta croqueta = new Croqueta();
+    public CroquetaDto create(CroquetaDto croquetaDto) {
+        Croqueta croqueta = new Croqueta(croquetaDto.getFrozen());
         this.croquetaDao.save(croqueta);
-        return new CroquetaBasicDto(croqueta);
+        return new CroquetaDto(croqueta);
     }
 
-    public List<CroquetaBasicDto> readAll() {
+    public List<CroquetaDto> readAll() {
         List<Croqueta> operators = this.croquetaDao.findAll();
-        return operators.stream().map(CroquetaBasicDto::new).collect(Collectors.toList());
+        return operators.stream().map(CroquetaDto::new).collect(Collectors.toList());
     }
-
 }

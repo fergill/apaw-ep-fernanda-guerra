@@ -1,6 +1,6 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 
-import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data.Croqueta;
+import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.Croqueta;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_data.Operator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;

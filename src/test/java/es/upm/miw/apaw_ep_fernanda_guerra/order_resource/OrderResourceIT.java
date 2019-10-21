@@ -1,7 +1,7 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 
 import es.upm.miw.apaw_ep_fernanda_guerra.ApiTestConfig;
-import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.CroquetaBasicDto;
+import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.CroquetaDto;
 import es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource.CroquetaResource;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorResource;
@@ -28,14 +28,14 @@ public class OrderResourceIT {
                 .expectStatus().isOk()
                 .expectBody(OperatorDto.class)
                 .returnResult().getResponseBody().getId();
-        CroquetaBasicDto croquetaBasicDto =
-                new CroquetaBasicDto();
+        CroquetaDto croquetaBasicDto =
+                new CroquetaDto();
         String croquetaId = this.webTestClient
                 .post().uri(CroquetaResource.CROQUETAS)
                 .body(BodyInserters.fromObject(croquetaBasicDto))
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(CroquetaBasicDto.class)
+                .expectBody(CroquetaDto.class)
                 .returnResult().getResponseBody().getId();
         return this.webTestClient
                 .post().uri(OrderResource.ORDERS)
