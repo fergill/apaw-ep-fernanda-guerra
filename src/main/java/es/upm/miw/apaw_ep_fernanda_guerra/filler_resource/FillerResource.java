@@ -28,4 +28,10 @@ public class FillerResource {
         this.fillerBusinessController.delete(id);
     }
 
+    @PatchMapping(value = ID_ID)
+    public void patch(@PathVariable String id, @RequestBody FillerPatchDto fillerPatchDto) {
+        fillerPatchDto.validate();
+        this.fillerBusinessController.patch(id, fillerPatchDto);
+    }
+
 }
