@@ -1,4 +1,4 @@
-package es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data;
+package es.upm.miw.apaw_ep_fernanda_guerra.croqueta_resource;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

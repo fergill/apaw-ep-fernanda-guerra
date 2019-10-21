@@ -1,6 +1,13 @@
-package es.upm.miw.apaw_ep_fernanda_guerra.croqueta_data;
+package es.upm.miw.apaw_ep_fernanda_guerra.filler_resource;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Filler {
+
+    @Id
+    private String id;
 
     private String type;
 
@@ -14,13 +21,18 @@ public class Filler {
 
     private Boolean spicy;
 
-    public Filler(String type, Double percentage, Double price, Boolean gluten, Boolean light, Boolean spicy) {
+    public Filler() {
+        this.id = id;
         this.type = type;
         this.percentage = percentage;
         this.price = price;
         this.gluten = gluten;
         this.light = light;
         this.spicy = spicy;
+    }
+
+    public String getId() {
+        return this.id;
     }
 
     public String getType() {
