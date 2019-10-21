@@ -1,6 +1,7 @@
 package es.upm.miw.apaw_ep_fernanda_guerra.order_resource;
 
 import es.upm.miw.apaw_ep_fernanda_guerra.operator_resource.OperatorDto;
+import io.swagger.v3.oas.models.media.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,4 +46,11 @@ public class OrderResource {
     public OperatorDto readOperator(@PathVariable String id) {
         return this.orderBusinessController.readOperator(id);
     }
+
+    @PutMapping(value = ID_ID + TOTAL)
+    public void updateTotal(@PathVariable String id, @RequestBody OrderBasicDto orderBasicDto) {
+        orderBasicDto.validate();
+        this.orderBusinessController.updateTotal(id, orderBasicDto.getTotal());
+    }
+
 }

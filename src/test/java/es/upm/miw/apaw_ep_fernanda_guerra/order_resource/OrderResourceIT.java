@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ApiTestConfig
@@ -61,4 +62,5 @@ public class OrderResourceIT {
                 .returnResult().getResponseBody().getId();
         assertNotNull(operatorId);
     }
+
 }

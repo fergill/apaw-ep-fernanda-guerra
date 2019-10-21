@@ -42,6 +42,8 @@ public class Order {
         return total;
     }
 
+    public void setTotal(Double total) { this.total = total; }
+
     public Operator getOperator() {
         return operator;
     }
@@ -60,5 +62,6 @@ public class Order {
                 ", croqueta=" + croqueta + '\'' +
                 '}';
     }
+
 
 }

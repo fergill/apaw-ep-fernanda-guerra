@@ -16,6 +16,11 @@ public class OrderBasicDto {
         this.total = order.getTotal();
     }
 
+    public OrderBasicDto(String id, Double total){
+        this.id = id;
+        this.total = total;
+    }
+
     public String getId() {
         return id;
     }

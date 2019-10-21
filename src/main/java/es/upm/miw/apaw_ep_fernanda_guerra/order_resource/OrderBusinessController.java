@@ -57,4 +57,10 @@ public class OrderBusinessController {
     }
 
 
+    public void updateTotal(String id, Double total) {
+        Order order = this.findOrderByIdAssured(id);
+        order.setTotal(total);
+        this.orderDao.save(order);
+    }
+
 }
