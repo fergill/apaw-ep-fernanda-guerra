@@ -38,7 +38,7 @@ public class FillerResource {
         if (!"condition".equals(q.split(":==")[0])) {
             throw new BadRequestException("query param q is incorrect, missing 'condition:=='");
         }
-        return this.fillerBusinessController.findByCondition(q.split(":==")[1]);
+        return this.fillerBusinessController.findByCondition(Boolean.valueOf(q.split(":==")[1]));
     }
 
 }

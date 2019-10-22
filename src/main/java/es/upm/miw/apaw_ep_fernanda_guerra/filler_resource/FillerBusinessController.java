@@ -31,7 +31,7 @@ public class FillerBusinessController {
         this.fillerDao.deleteById(id);
     }
 
-    private Boolean evaluate (Filler filler) {
+    private Boolean evaluate(Filler filler) {
         return filler.getLight().booleanValue() && filler.getSpicy().booleanValue() == true;
     }
 
