@@ -33,7 +33,7 @@ public class FillerBusinessController {
 
     public List<FillerDto> findByCondition(String s) {
         return this.fillerDao.findAll().stream()
-                .filter(filler -> filler.getLight() && filler.getSpicy() == true)
+                .filter(filler -> filler.getLight() == true)
                 .map(FillerDto::new)
                 .collect(Collectors.toList());
 
