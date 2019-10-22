@@ -67,7 +67,7 @@ public class FillerResourceIT {
        this.webTestClient
                 .get().uri(uriBuilder ->
                         uriBuilder.path(FillerResource.FILLERS + FillerResource.SEARCH)
-                                .queryParam("q", "condition:==true")
+                                .queryParam("q","evaluate:==true")
                                 .build())
                 .exchange()
                 .expectStatus().isOk()

@@ -31,9 +31,13 @@ public class FillerBusinessController {
         this.fillerDao.deleteById(id);
     }
 
-    public List<FillerDto> findByCondition(String s) {
+    private Boolean evaluate (Filler filler) {
+        return filler.getLight().booleanValue() && filler.getSpicy().booleanValue() == true;
+    }
+
+    public List<FillerDto> findByCondition(Boolean value) {
         return this.fillerDao.findAll().stream()
-                .filter(filler -> filler.getLight() == true)
+                .filter(filler -> this.evaluate(filler) == value)
                 .map(FillerDto::new)
                 .collect(Collectors.toList());
 
