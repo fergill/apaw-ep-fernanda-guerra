@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
 
+import java.util.List;
+import java.util.Map;
+
 @ApiTestConfig
 public class FillerResourceIT {
 
@@ -34,6 +37,15 @@ public class FillerResourceIT {
                 .exchange()
                 .expectStatus()
                 .isEqualTo(HttpStatus.BAD_REQUEST);
+    }
+
+    @Test
+    void findByCondition(String s) {
+        this.webTestClient
+                .get().uri(FillerResource.FILLERS + FillerResource.SEARCH, s)
+                .exchange()
+                .expectBody(Map.class)
+                .returnResult().getResponseBody();
     }
 
 }
