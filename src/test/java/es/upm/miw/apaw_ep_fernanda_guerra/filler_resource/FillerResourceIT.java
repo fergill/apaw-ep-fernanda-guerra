@@ -59,7 +59,6 @@ public class FillerResourceIT {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(FillerDto.class).returnResult().getResponseBody();
-        ;
         this.webTestClient
                 .get().uri(uriBuilder ->
                 uriBuilder.path(FillerResource.FILLERS + FillerResource.SEARCH)
