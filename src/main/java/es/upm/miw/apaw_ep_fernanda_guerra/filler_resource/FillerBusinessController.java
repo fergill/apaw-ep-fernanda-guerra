@@ -32,12 +32,12 @@ public class FillerBusinessController {
     }
 
     private Boolean evaluate(Filler filler) {
-        return filler.getLight().booleanValue() && filler.getSpicy().booleanValue() == true;
+        return filler.getLight() && filler.getSpicy() == true;
     }
 
-    public List<FillerDto> findByCondition(Boolean value) {
+    public List<FillerDto> findByLightAndSpicy(String q) {
         return this.fillerDao.findAll().stream()
-                .filter(filler -> this.evaluate(filler) == value)
+                .filter(filler -> this.evaluate(filler).equals(q))
                 .map(FillerDto::new)
                 .collect(Collectors.toList());
 

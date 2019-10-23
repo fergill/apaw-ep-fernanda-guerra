@@ -35,10 +35,9 @@ public class FillerResource {
 
     @GetMapping(value = SEARCH)
     public List<FillerDto> find(@RequestParam String q) {
-        if (!"condition".equals(q.split(":==")[0])) {
-            throw new BadRequestException("query param q is incorrect, missing 'condition:=='");
+        if (!("light".equals(q.split(":")[0])&&"spicy".equals(q.split(":")[0]))) {
+            throw new BadRequestException("query param q is incorrect, missing 'light'+'spicy'");
         }
-        return this.fillerBusinessController.findByCondition(Boolean.valueOf(q.split(":==")[1]));
+        return this.fillerBusinessController.findByLightAndSpicy(q.split(":")[1]);
     }
-
 }
