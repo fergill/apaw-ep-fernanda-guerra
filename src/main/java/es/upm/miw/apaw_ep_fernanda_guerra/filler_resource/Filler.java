@@ -21,16 +21,6 @@ public class Filler {
 
     private Boolean spicy;
 
-    public Filler() {
-        this.id = id;
-        this.type = type;
-        this.percentage = percentage;
-        this.price = price;
-        this.gluten = gluten;
-        this.light = light;
-        this.spicy = spicy;
-    }
-
     public String getId() {
         return this.id;
     }
