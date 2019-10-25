@@ -29,47 +29,24 @@ public class Filler {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public Double getPercentage() {
         return percentage;
-    }
-
-    public void setPercentage(Double percentage) {
-        this.percentage = percentage;
     }
 
     public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
     public Boolean getGluten() {
         return gluten;
-    }
-
-    public void setGluten(Boolean gluten) {
-        this.gluten = gluten;
     }
 
     public Boolean getLight() {
         return light;
     }
 
-    public void setLight(Boolean light) {
-        this.light = light;
-    }
-
     public Boolean getSpicy() {
         return spicy;
     }
 
-    public void setSpicy(Boolean spicy) {
-        this.spicy = spicy;
-    }
 }
