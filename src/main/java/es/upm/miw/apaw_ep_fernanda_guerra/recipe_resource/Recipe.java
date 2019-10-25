@@ -44,15 +44,4 @@ public class Recipe {
         return guests;
     }
 
-    @Override
-    public String toString() {
-        return "Recipe{" +
-                "id='" + id + '\'' +
-                ", description=" + description +
-                ", level=" + level +
-                ", light=" + light +
-                ", guests=" + guests + '\'' +
-                '}';
-    }
-
 }

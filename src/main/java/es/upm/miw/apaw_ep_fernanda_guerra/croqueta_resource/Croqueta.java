@@ -32,12 +32,4 @@ public class Croqueta {
         return filler;
     }
 
-    @Override
-    public String toString() {
-        return "Croqueta{" +
-                "id='" + id + '\'' +
-                ", frozen=" + frozen +
-                ", filler=" + filler + '\'' +
-                '}';
-    }
 }

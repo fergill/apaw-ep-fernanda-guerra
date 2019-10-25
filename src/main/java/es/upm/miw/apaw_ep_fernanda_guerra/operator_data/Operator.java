@@ -37,14 +37,5 @@ public class Operator {
         return dni;
     }
 
-    @Override
-    public String toString() {
-        return "Operator{" +
-                "id='" + id + '\'' +
-                ", name=" + name +
-                ", surname=" + surname +
-                ", dni=" + dni + '\'' +
-                '}';
-    }
 
 }

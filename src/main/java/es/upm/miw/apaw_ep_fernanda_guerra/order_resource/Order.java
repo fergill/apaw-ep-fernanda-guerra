@@ -54,16 +54,5 @@ public class Order {
         return croqueta;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id='" + id + '\'' +
-                ", date=" + date +
-                ", total=" + total +
-                ", operator=" + operator + '\'' +
-                ", croqueta=" + croqueta + '\'' +
-                '}';
-    }
-
 
 }
